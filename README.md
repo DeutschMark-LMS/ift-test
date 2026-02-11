@@ -2,6 +2,9 @@
 
 This repository contains an interactive quiz/exam application (`ift.html`). This guide explains how to get shareable links that anyone can use to open files directly.
 
+> 🚀 **Quick Start**: See [USAGE.md](USAGE.md) for instant shareable links!  
+> 💻 **Even Faster**: Run `python3 generate-links.py ift.html` or `./generate-links.sh ift.html`
+
 ## 📋 Quick Links for ift.html
 
 ### Option 1: GitHub Pages (Recommended for HTML files)
