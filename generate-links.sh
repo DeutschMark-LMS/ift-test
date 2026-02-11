@@ -43,6 +43,7 @@ get_git_info() {
     
     # Split owner and repo
     OWNER=$(echo $REPO_PATH | cut -d'/' -f1)
+    OWNER_LOWER=$(echo $OWNER | tr '[:upper:]' '[:lower:]')
     REPO=$(echo $REPO_PATH | cut -d'/' -f2)
     
     # Get current branch
@@ -56,7 +57,7 @@ generate_links() {
     # Generate all links
     local github_view="https://github.com/$OWNER/$REPO/blob/$BRANCH/$filename"
     local raw_link="https://raw.githubusercontent.com/$OWNER/$REPO/$BRANCH/$filename"
-    local github_pages="https://$(echo $OWNER | tr '[:upper:]' '[:lower:]').github.io/$REPO/$filename"
+    local github_pages="https://$OWNER_LOWER.github.io/$REPO/$filename"
     local jsdelivr="https://cdn.jsdelivr.net/gh/$OWNER/$REPO@$BRANCH/$filename"
     local githack_dev="https://raw.githack.com/$OWNER/$REPO/$BRANCH/$filename"
     local githack_prod="https://rawcdn.githack.com/$OWNER/$REPO/$BRANCH/$filename"

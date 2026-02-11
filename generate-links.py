@@ -41,7 +41,7 @@ def get_git_info():
                 ['git', 'rev-parse', '--abbrev-ref', 'HEAD'],
                 stderr=subprocess.DEVNULL
             ).decode('utf-8').strip()
-        except:
+        except (subprocess.CalledProcessError, FileNotFoundError):
             branch = 'main'
         
         return owner, repo, branch
