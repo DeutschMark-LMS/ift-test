@@ -53,6 +53,14 @@ get_git_info() {
 generate_links() {
     local filename=$1
     
+    # Generate all links
+    local github_view="https://github.com/$OWNER/$REPO/blob/$BRANCH/$filename"
+    local raw_link="https://raw.githubusercontent.com/$OWNER/$REPO/$BRANCH/$filename"
+    local github_pages="https://$(echo $OWNER | tr '[:upper:]' '[:lower:]').github.io/$REPO/$filename"
+    local jsdelivr="https://cdn.jsdelivr.net/gh/$OWNER/$REPO@$BRANCH/$filename"
+    local githack_dev="https://raw.githack.com/$OWNER/$REPO/$BRANCH/$filename"
+    local githack_prod="https://rawcdn.githack.com/$OWNER/$REPO/$BRANCH/$filename"
+    
     echo ""
     print_color $BLUE "======================================================================"
     print_color $GREEN "📎 SHAREABLE LINKS FOR: $filename"
@@ -60,27 +68,27 @@ generate_links() {
     echo ""
     
     echo "🔗 GitHub File View:"
-    echo "   https://github.com/$OWNER/$REPO/blob/$BRANCH/$filename"
+    echo "   $github_view"
     echo ""
     
     echo "🔗 Raw GitHub Link:"
-    echo "   https://raw.githubusercontent.com/$OWNER/$REPO/$BRANCH/$filename"
+    echo "   $raw_link"
     echo ""
     
     echo "🔗 GitHub Pages:"
-    echo "   https://$(echo $OWNER | tr '[:upper:]' '[:lower:]').github.io/$REPO/$filename"
+    echo "   $github_pages"
     echo ""
     
     echo "🔗 jsdelivr CDN:"
-    echo "   https://cdn.jsdelivr.net/gh/$OWNER/$REPO@$BRANCH/$filename"
+    echo "   $jsdelivr"
     echo ""
     
     echo "🔗 GitHack (Development):"
-    echo "   https://raw.githack.com/$OWNER/$REPO/$BRANCH/$filename"
+    echo "   $githack_dev"
     echo ""
     
     echo "🔗 GitHack (Production):"
-    echo "   https://rawcdn.githack.com/$OWNER/$REPO/$BRANCH/$filename"
+    echo "   $githack_prod"
     echo ""
     
     print_color $BLUE "======================================================================"
@@ -94,6 +102,10 @@ generate_links() {
     echo ""
     print_color $BLUE "======================================================================"
     echo ""
+    
+    # Export for use in show_html_notes
+    GITHACK_DEV_LINK="$githack_dev"
+    GITHUB_PAGES_LINK="$github_pages"
 }
 
 # Function to show special notes for HTML files
@@ -105,11 +117,11 @@ show_html_notes() {
         print_color $BLUE "======================================================================"
         echo ""
         print_color $YELLOW "🚀 Quick Start for HTML:"
-        echo "   1. Instant use: https://raw.githack.com/$OWNER/$REPO/$BRANCH/$filename"
+        echo "   1. Instant use: $GITHACK_DEV_LINK"
         echo ""
         echo "   2. Best option (requires setup):"
         echo "      - Enable GitHub Pages in repository settings"
-        echo "      - Then use: https://$(echo $OWNER | tr '[:upper:]' '[:lower:]').github.io/$REPO/$filename"
+        echo "      - Then use: $GITHUB_PAGES_LINK"
         echo ""
         print_color $BLUE "======================================================================"
         echo ""

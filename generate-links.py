@@ -46,7 +46,7 @@ def get_git_info():
         
         return owner, repo, branch
     
-    except Exception as e:
+    except (subprocess.CalledProcessError, FileNotFoundError, ValueError) as e:
         print(f"Error getting git info: {e}", file=sys.stderr)
         return None, None, None
 

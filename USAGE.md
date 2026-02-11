@@ -22,19 +22,21 @@ This will display all available link types with recommendations!
 
 For the `ift.html` file, here are your instant options:
 
+**Note:** Replace `main` with your branch name if using a different branch.
+
 #### ✨ Best for sharing (no setup needed):
 ```
-https://raw.githack.com/DeutschMark-LMS/ift-test/copilot/get-direct-file-link/ift.html
+https://raw.githack.com/DeutschMark-LMS/ift-test/main/ift.html
 ```
 
 #### 📦 For downloading:
 ```
-https://raw.githubusercontent.com/DeutschMark-LMS/ift-test/copilot/get-direct-file-link/ift.html
+https://raw.githubusercontent.com/DeutschMark-LMS/ift-test/main/ift.html
 ```
 
 #### 🌐 For production (fast CDN):
 ```
-https://cdn.jsdelivr.net/gh/DeutschMark-LMS/ift-test@copilot/get-direct-file-link/ift.html
+https://cdn.jsdelivr.net/gh/DeutschMark-LMS/ift-test@main/ift.html
 ```
 
 ## 📖 Need More Details?
@@ -71,7 +73,9 @@ A: No, as long as the file exists in the repository, the links will work.
 Share with anyone:
 ```
 Hey! Check out this quiz: 
-https://raw.githack.com/DeutschMark-LMS/ift-test/copilot/get-direct-file-link/ift.html
+https://raw.githack.com/DeutschMark-LMS/ift-test/main/ift.html
 ```
 
 They can click the link and use it immediately in their browser!
+
+**Note:** The generator scripts automatically detect your current branch, so the links they generate will always be correct for your working branch.
